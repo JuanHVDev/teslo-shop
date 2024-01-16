@@ -6,6 +6,7 @@ import { titleFont } from "@/config/font";
 import { initialData } from "@/seed/seed";
 import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
+import { AddToCart } from "./ui/AddToCart";
 
 interface Props
 {
@@ -59,13 +60,7 @@ export default async function SlugPage({ params }: Props)
           {product.title}
         </h1>
         <p className="mb-5 text-5xl">${product.price}</p>
-        {/* Selector de talla */}
-        <SizeSelector selectorSize={product.sizes[0]} availableSize={product.sizes} />
-        {/* Selector de Cantidad */}
-        <QuantitySelector quantity={2} />
-
-        <button className="btn-primary my-5">Agregar al carrito</button>
-
+        <AddToCart product={product} />
         <h3 className="font-bold text-sm">
           Descripción del Producto
         </h3>
